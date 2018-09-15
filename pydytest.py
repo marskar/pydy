@@ -6,12 +6,10 @@ from pydy import pydy
 def say_hi():
     print("Hi!")
 
-say_hi() # this should work
+say_hi()
 
-pydy(['say_hi']) # this will remove functions from global namespace
+pydy(['say_hi'])
 
-say_hi() # this will not work
-
-pd.DataFrame.say_hi() # this should work
-pandas.DataFrame.say_hi() # this should work
-DataFrame.say_hi() # this should work
+pd.DataFrame.say_hi()
+pandas.DataFrame.say_hi()
+DataFrame.say_hi()
