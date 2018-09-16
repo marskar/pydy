@@ -1,5 +1,5 @@
 from typing import Iterable
-from helper import *
+from method import *
 import __main__
 
 
