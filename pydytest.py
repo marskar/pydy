@@ -1,11 +1,14 @@
-import pandas
 import pandas as pd
-from pandas import DataFrame
-import numpy as np
 from pydy import pydy
 
-pydy(add=['say_hi', 'say_moo'], cls='np.chararray')
-pydy(add='say_hi', cls='pd.DataFrame')
+df = (pydy(cls=pd.DataFrame,
+           arg=pd.read_csv('risk_factors_cervical_cancer.csv'),
+           src='helper.py')
+    .dropna()
+    .head()
+ )
+
+df.save()
 
 np.chararray.say_hi()
 np.chararray.say_moo()

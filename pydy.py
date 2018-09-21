@@ -1,25 +1,31 @@
-from typing import Optional, Type
 from importlib import import_module
+import pickle
+import os.path
+
+if os.path.isfile('helper.py'):
+    from helper import *
 
 
-def pydy(cls: str = None,
-         arg: str = None,
-         src: str = None) -> Optional[Type]:
+def pydy(cls, arg=None, src=None):
 
-    if cls is not None:
-        class Pydy(cls):
-            # add pickle method here to give option to save the class
-            pass
+    class Pydy:#(cls):
+        def save(self, filename='pydy.pickle'):
+            with open(filename, 'wb') as f:
+                # Pickle Pydy class using the highest protocol available.
+                pickle.dump(self, f, pickle.HIGHEST_PROTOCOL)
 
-    if src.endswith('.py'):
-        src = src[:-3]
-    mod = import_module(src)
-    internals = mod.__dict__.items()
-    method_names = [name for name, val in internals if callable(val)]
+    if arg is not None:
+        instance = Pydy(arg)
+    else:
+        instance = Pydy
 
-    for name in method_names:
-        setattr(Pydy, name, eval(name))
+    if src is not None:
+        if src.endswith('.py'):
+            src = src[:-3]
+        mod = import_module(src)
+        internals = mod.__dict__.items()
+        method_names = [name for name, val in internals if callable(val)]
 
-    instance = Pydy(eval(arg))
-
+        for name in method_names:
+            instance.name = name
     return instance
