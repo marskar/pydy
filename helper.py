@@ -1,10 +1,6 @@
-def say_hi():
+def say_hi(self):
     print("Hi!")
 
 
-def say_moo():
-    print("Moo!")
-
-
-def unused():
+def say_moo(self):
     print("Moo!")
