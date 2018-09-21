@@ -1,22 +1,25 @@
-from typing import Iterable
-from method import *
-import __main__
+from typing import Optional, Type
+from importlib import import_module
 
 
-def pydy(add: Iterable[str], cls: str = 'pd.DataFrame') -> None:
+def pydy(cls: str = None,
+         arg: str = None,
+         src: str = None) -> Optional[Type]:
 
-    def add_method(name, target=cls):
-        main_target = '__main__.' + target
-        try:
-            if eval(main_target):
-                    setattr(eval(main_target), name, eval(name))
-        except AttributeError as e:
-            print(e)
+    if cls is not None:
+        class Pydy(cls):
+            # add pickle method here to give option to save the class
+            pass
 
-    if type(add) == str:
-        add_method(add)
-    elif type(add) in (list, tuple):
-        any(map(add_method, add))
-    else:
-        print(f'The add argument was {type(names)}. '
-              'It can only be a list/tuple of strings or a string')
+    if src.endswith('.py'):
+        src = src[:-3]
+    mod = import_module(src)
+    internals = mod.__dict__.items()
+    method_names = [name for name, val in internals if callable(val)]
+
+    for name in method_names:
+        setattr(Pydy, name, eval(name))
+
+    instance = Pydy(eval(arg))
+
+    return instance
