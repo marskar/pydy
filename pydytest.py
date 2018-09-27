@@ -2,6 +2,7 @@ import pandas as pd
 from pydy import pydy
 
 # create a new class that inherits from pd.DataFrame
+# and includes methods defined in a 'helper.py' file
 PydyFrame = pydy(cls=pd.DataFrame, src='helper')
 
 # instantiate the new class
