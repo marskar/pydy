@@ -1,1 +1,1 @@
-from pydy import pydy
+from pydy.pydy import pydy
