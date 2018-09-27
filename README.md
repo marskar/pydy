@@ -1,3 +1,5 @@
+# Pydy: Add user-defined methods to Python classes
+## Pandas DataFrame example
 ```python
 import pandas as pd
 from pydy import pydy
