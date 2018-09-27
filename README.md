@@ -1,3 +1,4 @@
+```python
 import pandas as pd
 from pydy import pydy
 
@@ -19,3 +20,4 @@ isinstance(df, (pd.DataFrame, PydyFrame))
 
 # confirm that PydyFrame is a subclass of pd.DataFrame
 issubclass(PydyFrame, pd.DataFrame)
+```
