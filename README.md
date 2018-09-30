@@ -1,20 +1,28 @@
 # The `scattr` Python package
 
 The `scattr` package has one function, `scattr`,
-that provides an easy way to
-**S**et **C**lass **ATTR**ibutes of classes derived
-from pre-existing Python classes.
+which creates a
+**S**ub**C**lass with **ATTR**ibutes defined
+in a user-defined helper script (`.py` files).
+
+Subclasses are classes derived from pre-existing classes.
+
+Attributes can be methods, classes, and variables,
+but the `scattr` function only adds
+callable objects(methods and classes), not variables.
 
 The `scattr` function takes 
 - a class object and
 - the name of a helper script
 and returns a subclass called `SubClassAttributes`
-that contains the methods defined in the helper script.
+that contains the methods and classes
+defined in the helper script.
 
 Essentially, this is an easy way to
-add user-defined functions to classes.
+add user-defined functions and classes to classes.
 
-Class variables, method and classes can be added dynamically:
+Class variables, method and classes
+can be added to pre-existing classes dynamically:
 ```python
 import pandas as pd
 import math
@@ -23,11 +31,14 @@ pd.DataFrame.pi = math.pi
 ```
 
 The `scattr` package provides a cleaner way to 
-add new attributes, because it creates a new subclass and
-uses method and class defined in a separate helper script. 
-
-The `scattr` function only adds
-callable objects(methods and classes), not variables.
+add new attributes, because
+1. it creates a new subclass,
+instead of modifying the original class, and
+2. automatically adds all of the methods and classes
+defined in a separate helper script,
+rather than dynamically add each one after
+defining everything in a single script or importing
+functions and classes from a module.
 
 ## Pandas DataFrame example
 ```python
