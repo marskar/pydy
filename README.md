@@ -1,5 +1,13 @@
 # The `scattr` Python package
 
+## Installation
+
+```bash
+pip install python
+```
+
+## Description
+
 The `scattr` package has one function, `scattr`,
 which creates a
 **S**ub**C**lass with **ATTR**ibutes defined
@@ -21,6 +29,10 @@ defined in the helper script.
 Essentially, this is an easy way to
 add user-defined functions and classes to classes.
 
+## Usage
+
+### Alternative to `scattr`: Add attributes dynamically
+
 Class variables, method and classes
 can be added to pre-existing classes dynamically:
 ```python
@@ -40,7 +52,8 @@ rather than dynamically add each one after
 defining everything in a single script or importing
 functions and classes from a module.
 
-## Pandas DataFrame example
+### Add attributes to a Pandas `DataFrame` with `scattr`
+
 ```python
 import pandas as pd
 from scattr import scattr
