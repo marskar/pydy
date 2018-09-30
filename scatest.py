@@ -10,7 +10,9 @@ df = ScattrFrame(data=pd.read_csv('risk_factors_cervical_cancer.csv'))
 
 # test methods added from helper file
 df.say_hi()
-df.say_moo()
+
+# test CowClass added from helper file
+df.CowClass.say_moo()
 
 # test method from parent class
 df.head(n=1)
