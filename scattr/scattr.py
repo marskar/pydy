@@ -1,9 +1,9 @@
 from importlib import import_module
 
 
-def f2m(cls, src: str = 'helper'):
+def scattr(cls, src: str = 'helper'):
 
-    class F2M(cls):
+    class SubClassAttributes(cls):
         pass
 
     mod = import_module(src)
@@ -12,6 +12,6 @@ def f2m(cls, src: str = 'helper'):
 
     for name in method_names:
         met = getattr(mod, name)
-        setattr(F2M, name, met)
+        setattr(SubClassAttributes, name, met)
 
-    return F2M
+    return SubClassAttributes

@@ -1,15 +1,30 @@
-# f2m: Turn user-defined functions into methods
+# The `scattr` Python package
+
+The `scattr` package has one function, `scattr`,
+that provides an easy way to
+**S**et **C**lass **ATTR**ibutes of classes derived
+from pre-existing Python classes.
+
+The `scattr` function takes 
+- a class object and
+- the name of a helper script
+and returns a subclass called `SubClassAttributes`
+that contains the methods defined in the helper script.
+
+Essentially, this is an easy way to
+add user-defined functions to classes.
+
 ## Pandas DataFrame example
 ```python
 import pandas as pd
-from f2m import f2m
+from scattr import scattr
 
 # create a new class that inherits from pd.DataFrame
 # and includes methods defined in a 'helper.py' file
-F2mFrame = f2m(cls=pd.DataFrame, src='helper')
+ScattrFrame = scattr(cls=pd.DataFrame, src='helper')
 
 # instantiate the new class
-df = F2mFrame(data=pd.read_csv('risk_factors_cervical_cancer.csv'))
+df = ScattrFrame(data=pd.read_csv('risk_factors_cervical_cancer.csv'))
 
 # test methods added from helper file
 df.say_hi()
@@ -19,8 +34,8 @@ df.say_moo()
 df.head(n=1)
 
 # confirm that df is an instance of pd.DataFrame and PydyFrame
-isinstance(df, (pd.DataFrame, F2mFrame))
+isinstance(df, (pd.DataFrame, ScattrFrame))
 
-# confirm that F2mFrame is a subclass of pd.DataFrame
-issubclass(F2mFrame, pd.DataFrame)
+# confirm that ScattrFrame is a subclass of pd.DataFrame
+issubclass(ScattrFrame, pd.DataFrame)
 ```
