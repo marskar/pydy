@@ -27,7 +27,7 @@ that contains the methods and classes
 defined in the helper script.
 
 Essentially, this is an easy way to
-add user-defined functions and classes to classes.
+add user-defined methods and classes to classes.
 
 ## Usage
 
@@ -50,7 +50,7 @@ instead of modifying the original class, and
 defined in a separate helper script,
 rather than dynamically add each one after
 defining everything in a single script or importing
-functions and classes from a module.
+methods and classes from a module.
 
 ### Add attributes to a Pandas `DataFrame` with `scattr`
 
