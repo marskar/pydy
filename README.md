@@ -13,11 +13,11 @@ which creates a
 **S**ub**C**lass with **ATTR**ibutes defined
 in a user-defined helper script (`.py` files).
 
-Subclasses are classes derived from pre-existing classes.
+[Subclasses](https://docs.python.org/3/tutorial/classes.html#inheritance) are classes derived from pre-existing classes.
 
-Attributes can be methods, classes, and variables,
+Attributes can be [methods](https://docs.python.org/3/tutorial/classes.html#method-objects), [classes](https://docs.python.org/3/tutorial/classes.html), and variables,
 but the `scattr` function only adds
-callable objects(methods and classes), not variables.
+[callable](https://docs.python.org/3/library/functions.html#callable) objects(methods and classes), not [variables](https://docs.python.org/3/tutorial/classes.html#class-and-instance-variables).
 
 The `scattr` function takes 
 - a class object and
